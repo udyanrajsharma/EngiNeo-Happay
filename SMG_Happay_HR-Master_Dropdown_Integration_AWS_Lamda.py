@@ -11,7 +11,6 @@ import pandas
 import uuid
 import fnmatch
 from os import listdir
-from os.path import isfile, join
 
 def get_system_ip():
     import urllib.request
@@ -82,15 +81,12 @@ def create_payload_for_dropdown_api(Dropdown_Field_Name, Dropdown_Field_Value):
         "ef_name": Dropdown_Field_Name, 
         "requestId": generate_today_date,
     }
-
     return payload
 
 # Department File : Department SF Code
 def insertDeptSFCodeDropdownValues (row):
     DeptSFCodePayload = create_payload_for_dropdown_api(DEPT_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DeptSFCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=DeptSFCodePayload)
     if response.status_code != 200:
         print(
@@ -104,14 +100,11 @@ def insertDeptSFCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Department File : Department SMG Code
 def insertDeptSMGCodeDropdownValues (row):
     DeptSMGCodePayload = create_payload_for_dropdown_api(DEPT_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(DeptSMGCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=DeptSMGCodePayload)
     if response.status_code != 200:
         print(
@@ -125,14 +118,11 @@ def insertDeptSMGCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Division File : Division SF Code
 def insertDivSFCodeDropdownValues (row):
     DivSFCodePayload = create_payload_for_dropdown_api(DIV_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DivSFCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivSFCodePayload)
     if response.status_code != 200:
         print(
@@ -146,14 +136,11 @@ def insertDivSFCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Division File : Division SMG Code
 def insertDivSMGCodeDropdownValues (row):
     DivSMGCodePayload = create_payload_for_dropdown_api(DIV_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(DivSMGCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivSMGCodePayload)
     if response.status_code != 200:
         print(
@@ -167,15 +154,12 @@ def insertDivSMGCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 
 # Division Cluster File : Cluster SF Code
 def insertClusterSFCodeDropdownValues (row):
     clusterSFCodePayload = create_payload_for_dropdown_api(DIV_CLUSTER_SFCode_NAME, row[0])
     jsonPayload = json.dumps(clusterSFCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=clusterSFCodePayload)
     if response.status_code != 200:
         print(
@@ -189,14 +173,11 @@ def insertClusterSFCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Division Cluster File : Cluster SMG Code
 def insertClusterSMGCodeDropdownValues (row):
     clusterSMGCodePayload = create_payload_for_dropdown_api(DIV_CLUSTER_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(clusterSMGCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=clusterSMGCodePayload)
     if response.status_code != 200:
         print(
@@ -210,14 +191,11 @@ def insertClusterSMGCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Division Group File : Division Group SF Code
 def insertDivGrpSFCodeDropdownValues (row):
     DivGrpSFCodePayload = create_payload_for_dropdown_api(DIV_GROUP_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DivGrpSFCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivGrpSFCodePayload)
     if response.status_code != 200:
         print(
@@ -231,14 +209,11 @@ def insertDivGrpSFCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Division Group File : Division Group SMG Code
 def insertDivGrpSMGCodeDropdownValues (row):
     DivGrpSMGCodePayload = create_payload_for_dropdown_api(DIV_GROUP_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(DivGrpSMGCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivGrpSMGCodePayload)
     if response.status_code != 200:
         print(
@@ -252,14 +227,11 @@ def insertDivGrpSMGCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Vertical File : Vertical SF Code
 def insertVertSFCodeDropdownValues (row):
     VertSFCodePayload = create_payload_for_dropdown_api(VERT_SFCode_NAME, row[0])
     jsonPayload = json.dumps(VertSFCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=VertSFCodePayload)
     if response.status_code != 200:
         print(
@@ -273,14 +245,11 @@ def insertVertSFCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 # Vertical File : Vertical SMG Code
 def insertVertSMGCodeDropdownValues (row):
     VertSMGCodePayload = create_payload_for_dropdown_api(VERT_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(VertSMGCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=VertSMGCodePayload)
     if response.status_code != 200:
         print(
@@ -294,15 +263,11 @@ def insertVertSMGCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
-
 
 # Designation File : Designation SF Code
 def insertDesigSFCodeDropdownValues (row):
     DesigSFCodePayload = create_payload_for_dropdown_api(DESIG_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DesigSFCodePayload)
-    print("###### Invoking Happay API ######")
-    print("Request Payload => ", jsonPayload)
     response = requests.post(url=api_url, headers=request_headers, json=DesigSFCodePayload)
     if response.status_code != 200:
         print(
@@ -316,7 +281,6 @@ def insertDesigSFCodeDropdownValues (row):
         )
     else:
         print("\n\nSuccessfull API invocation")
-    print("###### Happay API Invocation ended ######\n\n")
 
 def SMG_department():
     try:
@@ -327,7 +291,6 @@ def SMG_department():
         headers = next(
             lines
         )  
-
         for row_count, row in enumerate(lines):
             try:
                 insertDeptSFCodeDropdownValues(row)
@@ -335,7 +298,6 @@ def SMG_department():
             except Exception as e:
                 print (str(e))
                 error_rows.append({'row_index': row_count+1, 'error': str(e)})
-
         print (str(error_rows))
     except Exception as e:
         raise e
