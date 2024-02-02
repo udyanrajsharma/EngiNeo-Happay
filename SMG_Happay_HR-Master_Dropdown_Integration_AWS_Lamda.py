@@ -41,12 +41,6 @@ request_headers = {
     "content-type": "application/json",
 }
 
-def get_file_from_sftp(file_name):
-    transport = paramiko.Transport((SFTP_HOST, SFTP_PORT))
-    transport.connect(None,SFTP_USERNAME,SFTP_PASSWORD)
-    connection = paramiko.SFTPClient.from_transport(transport)
-    return connection.open(DIR_PATH + file_name)
-
 def get_sftp_connection():
     transport = paramiko.Transport((SFTP_HOST, SFTP_PORT))
     transport.connect(None,SFTP_USERNAME,SFTP_PASSWORD)
@@ -58,7 +52,7 @@ def get_file(file_name):
     file_pattern = file_name+generate_today_date+"*.csv"
     matching_file = [ file for file in sftp.listdir(DIR_PATH) if fnmatch.fnmatch(file, file_pattern)]
     latest_file = max(matching_file, key=lambda file: sftp.stat(DIR_PATH + '/' + file).st_mtime)
-    return latest_file
+    return sftp.open(DIR_PATH + latest_file)
 
 # HR Master Field Name
 DEPT_SFCode_NAME = 'Department_SF_Code'
@@ -328,9 +322,7 @@ def SMG_department():
     try:
         error_rows = []
         file_pattern_name = DEPT_FILE_NAME
-        file_name = get_file(file_pattern_name)
-        print("file name = ", file_name)
-        file = get_file_from_sftp(file_name)
+        file = get_file(file_pattern_name)
         lines = csv.reader(file, delimiter=DELIMITER)
         headers = next(
             lines
@@ -352,14 +344,11 @@ def SMG_division():
     try:
         error_rows = []
         file_pattern_name = DIV_FILE_NAME
-        file_name = get_file(file_pattern_name)
-        print("file name = ", file_name)
-        file = get_file_from_sftp(file_name)
+        file = get_file(file_pattern_name)
         lines = csv.reader(file, delimiter=DELIMITER)
         headers = next(
             lines
         )  
-
         for row_count, row in enumerate(lines):
             try:
                 insertDivSFCodeDropdownValues(row)
@@ -367,7 +356,6 @@ def SMG_division():
             except Exception as e:
                 print (str(e))
                 error_rows.append({'row_index': row_count+1, 'error': str(e)})
-
         print (str(error_rows))
     except Exception as e:
         raise e
@@ -376,14 +364,11 @@ def SMG_division_cluster():
     try:
         error_rows = []
         file_pattern_name = DIV_CLSTR_FILE_NAME
-        file_name = get_file(file_pattern_name)
-        print("file name = ", file_name)
-        file = get_file_from_sftp(file_name)
+        file = get_file(file_pattern_name)
         lines = csv.reader(file, delimiter=DELIMITER)
         headers = next(
             lines
         )  
-
         for row_count, row in enumerate(lines):
             try:
                 insertClusterSFCodeDropdownValues(row)
@@ -391,7 +376,6 @@ def SMG_division_cluster():
             except Exception as e:
                 print (str(e))
                 error_rows.append({'row_index': row_count+1, 'error': str(e)})
-
         print (str(error_rows))
     except Exception as e:
         raise e
@@ -400,14 +384,11 @@ def SMG_division_group():
     try:
         error_rows = []
         file_pattern_name = DIV_GROUP_FILE_NAME
-        file_name = get_file(file_pattern_name)
-        print("file name = ", file_name)
-        file = get_file_from_sftp(file_name)
+        file = get_file(file_pattern_name)
         lines = csv.reader(file, delimiter=DELIMITER)
         headers = next(
             lines
         )  
-
         for row_count, row in enumerate(lines):
             try:
                 insertDivGrpSFCodeDropdownValues(row)
@@ -415,7 +396,6 @@ def SMG_division_group():
             except Exception as e:
                 print (str(e))
                 error_rows.append({'row_index': row_count+1, 'error': str(e)})
-
         print (str(error_rows))
     except Exception as e:
         raise e
@@ -424,14 +404,11 @@ def SMG_vertical():
     try:
         error_rows = []
         file_pattern_name = VERT_FILE_NAME
-        file_name = get_file(file_pattern_name)
-        print("file name = ", file_name)
-        file = get_file_from_sftp(file_name)
+        file = get_file(file_pattern_name)
         lines = csv.reader(file, delimiter=DELIMITER)
         headers = next(
             lines
         )  
-
         for row_count, row in enumerate(lines):
             try:
                 insertVertSFCodeDropdownValues(row)
@@ -439,7 +416,6 @@ def SMG_vertical():
             except Exception as e:
                 print (str(e))
                 error_rows.append({'row_index': row_count+1, 'error': str(e)})
-
         print (str(error_rows))
     except Exception as e:
         raise e
@@ -448,21 +424,17 @@ def SMG_designation():
     try:
         error_rows = []
         file_pattern_name = DESIG_FILE_NAME
-        file_name = get_file(file_pattern_name)
-        print("file name = ", file_name)
-        file = get_file_from_sftp(file_name)
+        file = get_file(file_pattern_name)
         lines = csv.reader(file, delimiter=DELIMITER)
         headers = next(
             lines
         )  
-
         for row_count, row in enumerate(lines):
             try:
                 insertDesigSFCodeDropdownValues(row)
             except Exception as e:
                 print (str(e))
                 error_rows.append({'row_index': row_count+1, 'error': str(e)})
-
         print (str(error_rows))
     except Exception as e:
         raise e
@@ -472,13 +444,12 @@ process_id = uuid.uuid4().hex
 def lambda_handler(event, context):
     get_system_ip()
     try:
-        dept_response = SMG_department()
-        div_response = SMG_division()
-        div_cluster_response = SMG_division_cluster()
-        div_group_response = SMG_division_group()
-        vert_response = SMG_vertical()
-        desig_response = SMG_designation()
-
+        SMG_department()
+        SMG_division()
+        SMG_division_cluster()
+        SMG_division_group()
+        SMG_vertical()
+        SMG_designation()
     except Exception as e:
         raise e
-    
+  
