@@ -88,199 +88,143 @@ def insertDeptSFCodeDropdownValues (row):
     DeptSFCodePayload = create_payload_for_dropdown_api(DEPT_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DeptSFCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=DeptSFCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            DeptSFCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            DeptSFCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : DeptSFCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Department File : Department SMG Code
 def insertDeptSMGCodeDropdownValues (row):
     DeptSMGCodePayload = create_payload_for_dropdown_api(DEPT_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(DeptSMGCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=DeptSMGCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            DeptSMGCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            DeptSMGCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : DeptSMGCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Division File : Division SF Code
 def insertDivSFCodeDropdownValues (row):
     DivSFCodePayload = create_payload_for_dropdown_api(DIV_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DivSFCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivSFCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            DivSFCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            DivSFCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : DivSFCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Division File : Division SMG Code
 def insertDivSMGCodeDropdownValues (row):
     DivSMGCodePayload = create_payload_for_dropdown_api(DIV_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(DivSMGCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivSMGCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            DivSMGCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            DivSMGCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
-
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : DivSMGCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Division Cluster File : Cluster SF Code
 def insertClusterSFCodeDropdownValues (row):
     clusterSFCodePayload = create_payload_for_dropdown_api(DIV_CLUSTER_SFCode_NAME, row[0])
     jsonPayload = json.dumps(clusterSFCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=clusterSFCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            clusterSFCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            clusterSFCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : clusterSFCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Division Cluster File : Cluster SMG Code
 def insertClusterSMGCodeDropdownValues (row):
     clusterSMGCodePayload = create_payload_for_dropdown_api(DIV_CLUSTER_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(clusterSMGCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=clusterSMGCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            clusterSMGCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            clusterSMGCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : clusterSMGCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Division Group File : Division Group SF Code
 def insertDivGrpSFCodeDropdownValues (row):
     DivGrpSFCodePayload = create_payload_for_dropdown_api(DIV_GROUP_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DivGrpSFCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivGrpSFCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            DivGrpSFCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            DivGrpSFCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : DivGrpSFCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Division Group File : Division Group SMG Code
 def insertDivGrpSMGCodeDropdownValues (row):
     DivGrpSMGCodePayload = create_payload_for_dropdown_api(DIV_GROUP_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(DivGrpSMGCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=DivGrpSMGCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            DivGrpSMGCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            DivGrpSMGCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : DivGrpSMGCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Vertical File : Vertical SF Code
 def insertVertSFCodeDropdownValues (row):
     VertSFCodePayload = create_payload_for_dropdown_api(VERT_SFCode_NAME, row[0])
     jsonPayload = json.dumps(VertSFCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=VertSFCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            VertSFCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            VertSFCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : VertSFCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Vertical File : Vertical SMG Code
 def insertVertSMGCodeDropdownValues (row):
     VertSMGCodePayload = create_payload_for_dropdown_api(VERT_SMGCode_NAME, row[1])
     jsonPayload = json.dumps(VertSMGCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=VertSMGCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            VertSMGCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            VertSMGCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : VertSMGCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 # Designation File : Designation SF Code
 def insertDesigSFCodeDropdownValues (row):
     DesigSFCodePayload = create_payload_for_dropdown_api(DESIG_SFCode_NAME, row[0])
     jsonPayload = json.dumps(DesigSFCodePayload)
     response = requests.post(url=api_url, headers=request_headers, json=DesigSFCodePayload)
-    if response.status_code != 200:
-        print(
-            "\n\nFailed record Value = ",
-            DesigSFCodePayload.get("dd_values"),
-            "; Dropdown Field Name = ",
-            DesigSFCodePayload.get("ef_name"),
-            "; error = ",
-            response.text,
-            "Row No: ",row
-        )
-    else:
-        print("\n\nSuccessfull API invocation")
+    queue.send_message(MessageBody=json.dumps({
+        "api_url" : api_url,
+        "headers" : request_headers,
+        "payload_data" : DesigSFCodePayload,
+        "lambda_function_name" : "SMG_HR_Master",
+        "process_id" : process_id
+    }))
 
 def SMG_department():
     try:
@@ -411,7 +355,7 @@ def lambda_handler(event, context):
         SMG_division_cluster()
         SMG_division_group()
         SMG_vertical()
-        SMG_designation()
+        SMG_designation()        
     except Exception as e:
         raise e
   
