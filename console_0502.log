@@ -1,0 +1,52 @@
+223.190.87.254
+###### Invoking Happay API ######
+Request Payload =>  {"emailId": "test3@engineosol.com", "firstName": "test", "title": "Mr", "middleName": "1", "dob": "1990-01-01", "gender": "Male", "password": "Smg@2024", "mobileNo": "9192939495", "mobile_extension": "+91", "userId": "TEST_4", "requestId": "TEST_4", "lastName": "verma", "metaFields": {"Employee_Code": "TEST_4", "Dt_Designation": "Head\u00a0Collections", "Dt_Grades": "1", "City": "Gurugram", "Usecase Entity": "Domestic\u00a0Travel"}, "supervisors": [{"supervisorId": "1", "roleName": "super admin"}]}
+
+
+Failed record emailId =  test3@engineosol.com ; userId =  TEST_4 ; error =  {"error": {"message": "Domestic\u00a0Travel is not a valid option from the drop-down for Usecase Entity.", "exceptionName": null, "context": null, "err_code": null}}
+###### Happay API Invocation ended ######
+
+
+###### Invoking Happay API ######
+Request Payload =>  {"emailId": "test4@engineosol.com", "firstName": "test", "title": "Mr", "middleName": "2", "dob": "1990-01-01", "gender": "Male", "password": "Smg@2024", "mobileNo": "9291939496", "mobile_extension": "+91", "userId": "TEST_5", "requestId": "TEST_5", "lastName": "verma", "metaFields": {"Employee_Code": "TEST_5", "Dt_Designation": "Head\u00a0Collections", "Dt_Grades": "1", "City": "Gurugram", "Usecase Entity": "Domestic\u00a0Travel"}, "supervisors": [{"supervisorId": "1", "roleName": "super admin"}]}
+
+
+Failed record emailId =  test4@engineosol.com ; userId =  TEST_5 ; error =  {"error": {"message": "Domestic\u00a0Travel is not a valid option from the drop-down for Usecase Entity.", "exceptionName": null, "context": null, "err_code": null}}
+###### Happay API Invocation ended ######
+
+
+###### Invoking Happay API ######
+Request Payload =>  {"emailId": "test5@engineosol.com", "firstName": "test", "title": "Mr", "middleName": "3", "dob": "1990-01-01", "gender": "Male", "password": "Smg@2024", "mobileNo": "9394959697", "mobile_extension": "+91", "userId": "TEST_6", "requestId": "TEST_6", "lastName": "verma", "metaFields": {"Employee_Code": "TEST_6", "Dt_Designation": "Head\u00a0Collections", "Dt_Grades": "1", "City": "Gurugram", "Usecase Entity": "Domestic\u00a0Travel"}, "supervisors": [{"supervisorId": "1", "roleName": "super admin"}]}
+
+
+Failed record emailId =  test5@engineosol.com ; userId =  TEST_6 ; error =  {"error": {"message": "Domestic\u00a0Travel is not a valid option from the drop-down for Usecase Entity.", "exceptionName": null, "context": null, "err_code": null}}
+###### Happay API Invocation ended ######
+
+
+[]
+223.190.87.254
+###### Invoking Happay API ######
+Request Payload =>  {"emailId": "test3@engineosol.com", "firstName": "test", "title": "Mr", "middleName": "1", "dob": "1990-01-01", "gender": "Male", "password": "Smg@2024", "mobileNo": "9192939495", "mobile_extension": "+91", "userId": "TEST_4", "requestId": "TEST_4", "lastName": "verma", "metaFields": {"Employee_Code": "TEST_4", "Dt_Designation": "Head\u00a0Collections", "Dt_Grades": "1", "City": "Gurugram", "Usecase_Entity": "Domestic\u00a0Travel"}, "supervisors": [{"supervisorId": "1", "roleName": "super admin"}]}
+
+
+Failed record emailId =  test3@engineosol.com ; userId =  TEST_4 ; error =  {"error": {"message": "Domestic\u00a0Travel is not a valid option from the drop-down for Usecase Entity.", "exceptionName": null, "context": null, "err_code": null}}
+###### Happay API Invocation ended ######
+
+
+###### Invoking Happay API ######
+Request Payload =>  {"emailId": "test4@engineosol.com", "firstName": "test", "title": "Mr", "middleName": "2", "dob": "1990-01-01", "gender": "Male", "password": "Smg@2024", "mobileNo": "9291939496", "mobile_extension": "+91", "userId": "TEST_5", "requestId": "TEST_5", "lastName": "verma", "metaFields": {"Employee_Code": "TEST_5", "Dt_Designation": "Head\u00a0Collections", "Dt_Grades": "1", "City": "Gurugram", "Usecase_Entity": "Domestic\u00a0Travel"}, "supervisors": [{"supervisorId": "1", "roleName": "super admin"}]}
+
+
+Failed record emailId =  test4@engineosol.com ; userId =  TEST_5 ; error =  {"error": {"message": "Domestic\u00a0Travel is not a valid option from the drop-down for Usecase Entity.", "exceptionName": null, "context": null, "err_code": null}}
+###### Happay API Invocation ended ######
+
+
+###### Invoking Happay API ######
+Request Payload =>  {"emailId": "test5@engineosol.com", "firstName": "test", "title": "Mr", "middleName": "3", "dob": "1990-01-01", "gender": "Male", "password": "Smg@2024", "mobileNo": "9394959697", "mobile_extension": "+91", "userId": "TEST_6", "requestId": "TEST_6", "lastName": "verma", "metaFields": {"Employee_Code": "TEST_6", "Dt_Designation": "Head\u00a0Collections", "Dt_Grades": "1", "City": "Gurugram", "Usecase_Entity": "Domestic\u00a0Travel"}, "supervisors": [{"supervisorId": "1", "roleName": "super admin"}]}
+
+
+Failed record emailId =  test5@engineosol.com ; userId =  TEST_6 ; error =  {"error": {"message": "Domestic\u00a0Travel is not a valid option from the drop-down for Usecase Entity.", "exceptionName": null, "context": null, "err_code": null}}
+###### Happay API Invocation ended ######
+
+
+[]
