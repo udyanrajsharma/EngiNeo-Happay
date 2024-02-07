@@ -1,0 +1,52 @@
+curl --location 'https://api-v2.happay.in/auth/v1/add_update_user/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer CEiTeH5mUbdJ0sFoUtC7biTpK' \
+--data '{
+    "emailId": "",
+    "firstName": "",
+    "title": "",
+    "middleName": "",
+    "dob": "",
+    "gender": "",
+    "mobileNo": "",
+    "mobile_extension": "+91",
+    "userId": "",
+    "requestId": "",
+    "lastName": "",
+    "metaFields": {
+        "Employee_Code": "",
+        "ENTITY_NAME": "",
+        "ENTITY_CODE": "",
+        "BUSINESS_UNIT": "",
+        "DEPT_NAME": "",
+        "COST_CENTER": "",
+        "COST_CENTER_CODE": "",
+        "LEVEL": "",
+        "DESIGNATION": "",
+        "Bank_Name": "",
+        "Bank_Account_Number": "",
+        "Ifsc_Code": ""
+    },
+    "supervisors": [
+        {
+            "supervisorId": "",
+            "roleName": "Reporting Manager"
+        },
+        {
+            "supervisorId": "",
+            "roleName": "Head of Department"
+        },
+        {
+            "supervisorId": "",
+            "roleName": "BU Head"
+        },
+        {
+            "supervisorId": "",
+            "roleName": "CHRO"
+        },
+        {
+            "supervisorId": "",
+            "roleName": "Finance Team"
+        }
+    ]
+}'
